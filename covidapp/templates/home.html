@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<h1 style="margin-top:5rem; color:white; text-align:center;">
+    <span style="color:red">COVID-19</span> WORLDWIDE DATA</h1>
+    <form style="margin-top:2rem; "  method="POST" class="d-flex justify-content-center align-items-center" action="">
+        {% csrf_token %}
+        <select class="form-control" style="width:15rem" name="selectedcountry">
+            {% for country in mylist %}
+            <option>{{country}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" class="btn btn-danger" name="Submit">
+    </form>
+    <h1 style="margin-top:3rem; margin-bottom:3rem; color:white; text-align:center;">{{selectedcountry}}</h1>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container" style="border-radius: 1rem; background-color:pink; width:14rem; height:7rem;">
+                <h1 style="text-align:center;">{{total}}</h1>
+                <p style="text-align:center;">Total Cases</p>
+        </div>
+        <div class="container" style="border-radius: 1rem; background-color:green; width:14rem; height:7rem;">
+                <h1 style="text-align:center;">{{recovered}}</h1>
+                <p style="text-align:center;">recovered</p>
+        </div>
+        <div class="container" style="border-radius: 1rem; background-color:yellow; width:14rem; height:7rem;">
+                <h1 style="text-align:center;">{{active}}</h1>
+                <p style="text-align:center;">Active</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container" style="border-radius: 1rem; background-color:skyblue; width:14rem; height:7rem;">
+            <h1 style="text-align:center;">{{new}}</h1>
+            <p style="text-align:center;">New</p>
+        </div>
+        <div class="container" style="border-radius: 1rem; background-color:red; width:14rem; height:7rem;">
+            <h1 style="text-align:center;">{{death}}</h1>
+            <p style="text-align:center;">Death</p>
+        </div>
+        <div class="container" style="border-radius: 1rem; background-color:brown;width:14rem; height:7rem;">
+            <h1 style="text-align:center;">{{critical}}</h1>
+            <p style="text-align:center;">Critical</p>
+        </div>
+    </div>
+<p style="margin-top:2rem;text-align:center; color:green;"><span style="color:white">Developed By : </span>Dillip Singh</p>
+
+
+{% endblock content %}
