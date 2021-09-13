@@ -5,41 +5,53 @@
     <span style="color:red">COVID-19</span> WORLDWIDE DATA</h1>
     <form style="margin-top:2rem; "  method="POST" class="d-flex justify-content-center align-items-center" action="">
         {% csrf_token %}
-        <select class="form-control" style="width:15rem" name="selectedcountry">
+        <select id="selectcountry" class="form-control" style="width:15rem" name="selectedcountry">
+
             {% for country in mylist %}
             <option>{{country}}</option>
             {% endfor %}
         </select>
         <input type="submit" class="btn btn-danger" name="Submit">
     </form>
-    <h1 style="margin-top:3rem; margin-bottom:3rem; color:white; text-align:center;">{{selectedcountry}}</h1>
+    <h1 style="margin-top:1rem; margin-bottom:1rem; color:white; text-align:center;">{{selectedcountry}}</h1>
+    <div class="container" style="border-radius: 1rem; background-color:black;">
+        <div class="row align-items-center">
+          <div class="col" style="color:white; text-align:center;">
+            <p>Continent : {{continent}}</p>
+            <p>Population : {{population}}</p>
+            <p>Date and Time : {{time}}</p>
+            <p>Total test : {{test}}</p>
+            <p>Total Death : {{death_total}}</p>
+          </div>
+        </div>
+    </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <div class="container" style="border-radius: 1rem; background-color:pink; width:14rem; height:7rem;">
-                <h1 style="text-align:center;">{{total}}</h1>
-                <p style="text-align:center;">Total Cases</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:#C30413; width:12rem; height:6rem;">
+                <h1 style="text-align:center;">{{total_cases}}</h1>
+                <p style="text-align:center;"><strong>Total Cases</strong></p>
         </div>
-        <div class="container" style="border-radius: 1rem; background-color:green; width:14rem; height:7rem;">
-                <h1 style="text-align:center;">{{recovered}}</h1>
-                <p style="text-align:center;">recovered</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:green; width:12rem; height:6rem;">
+                <h1 style="text-align:center;">{{new_cases}}</h1>
+                <p style="text-align:center;"><strong>New Cases</strong></p>
         </div>
-        <div class="container" style="border-radius: 1rem; background-color:yellow; width:14rem; height:7rem;">
-                <h1 style="text-align:center;">{{active}}</h1>
-                <p style="text-align:center;">Active</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:#C21A2F; width:12rem; height:6rem;">
+                <h1 style="text-align:center;">{{active_cases}}</h1>
+                <p style="text-align:center;"><strong>Active Cases</strong></p>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <div class="container" style="border-radius: 1rem; background-color:skyblue; width:14rem; height:7rem;">
-            <h1 style="text-align:center;">{{new}}</h1>
-            <p style="text-align:center;">New</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:#9FB939; width:12rem; height:6rem;">
+            <h1 style="text-align:center;">{{critical_cases}}</h1>
+            <p style="text-align:center;"><strong>Critical Cases</strong></p>
         </div>
-        <div class="container" style="border-radius: 1rem; background-color:red; width:14rem; height:7rem;">
-            <h1 style="text-align:center;">{{death}}</h1>
-            <p style="text-align:center;">Death</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:yellow; width:12rem; height:6rem;">
+            <h1 style="text-align:center;">{{recovered_cases}}</h1>
+            <p style="text-align:center;"><strong>Recovered Cases</strong></p>
         </div>
-        <div class="container" style="border-radius: 1rem; background-color:brown;width:14rem; height:7rem;">
-            <h1 style="text-align:center;">{{critical}}</h1>
-            <p style="text-align:center;">Critical</p>
+        <div class="container" style="border-radius: 1rem; padding:1rem; background-color:red;width:12rem; height:6rem;">
+            <h1 style="text-align:center;">{{new_death}}</h1>
+            <p style="text-align:center;"><strong>New Death</strong></p>
         </div>
     </div>
 <p style="margin-top:2rem;text-align:center; color:green;"><span style="color:white">Developed By : </span>Dillip Singh</p>
